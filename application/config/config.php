@@ -1,6 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+function __autoload($classname)
+{
+    if (strpos($classname, 'CI_') !== 0) {
+        $file = APPPATH . 'libraries/' . $classname . '.php';
+        if (file_exists($file) && is_file($file)) {
+            @include_once($file);
+        }
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -52,7 +62,7 @@ $config['index_page'] = '';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol'] = 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +86,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language'] = 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -390,11 +400,11 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']	= '';
-$config['cookie_domain']	= '';
-$config['cookie_path']		= '/';
-$config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] 	= FALSE;
+$config['cookie_prefix'] = '';
+$config['cookie_domain'] = '';
+$config['cookie_path'] = '/';
+$config['cookie_secure'] = FALSE;
+$config['cookie_httponly'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
