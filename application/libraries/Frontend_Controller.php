@@ -1,10 +1,9 @@
 <?php
 
 class Frontend_Controller extends MY_Controller{
-
-    function __construct()
-    {
+    
+    public function __construct(){
         parent::__construct();
-     
+        echo "Welcome To Frontend ";
     }
 }
